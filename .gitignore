@@ -1,0 +1,16 @@
+# n8n Workflows - .gitignore
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temp / logs
+*.log
+*.tmp
