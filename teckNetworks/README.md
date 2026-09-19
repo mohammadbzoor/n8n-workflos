@@ -5,6 +5,14 @@
 
 ---
 
+## لقطات من النظام
+
+| ATS Resume Analyzer — Candidate Side | AI Recruitment Engine — Recruiter Side |
+|:------------------------------------:|:--------------------------------------:|
+| ![ATS Resume Analysis Architecture](./ATS_Architecture.jpg) | ![AI Recruitment Engine Architecture](./Recruitment_Engine_Architecture.jpg) |
+
+---
+
 ## نظرة عامة على المنظومة
 
 هذه المنظومة تتكون من **جانبين متكاملين**:
