@@ -1,11 +1,18 @@
-# 🟠 Alpha Finance — نظام الذكاء المالي
+# 🟠 Alpha Finance — AI Financial Intelligence System
 
-> نظام AI متخصص في **استخراج وتحليل المعاملات المالية** من صور ونصوص.  
-> يعمل عبر **Webhook REST API** — كل workflow يستجيب لـ endpoint مستقل.
+> An AI-powered financial data processing system built on **independent REST API workflows**.  
+> Each endpoint handles a specific financial task: receipt OCR, transaction analysis, AI assistant, notifications, and OTP verification.
+
+![n8n](https://img.shields.io/badge/n8n-REST%20API-FF6D5A?style=flat-square&logo=n8n&logoColor=white)
+![OpenAI](https://img.shields.io/badge/OpenAI-GPT--4%20Vision-412991?style=flat-square&logo=openai&logoColor=white)
+![Webhook](https://img.shields.io/badge/Trigger-Webhook-f59e0b?style=flat-square)
+![Gmail](https://img.shields.io/badge/Gmail-OTP-EA4335?style=flat-square&logo=gmail&logoColor=white)
 
 ---
 
-## لقطات من النظام
+---
+
+## 📷 System Screenshots
 
 | Chat Bot | Financial Analyst |
 |----------|-----------------|
@@ -17,58 +24,58 @@
 
 ---
 
-## معمارية النظام
+## 🏗️ System Architecture
 
 ```
 Client Application
         │
-        ├── POST /receipt       ──▶  Alpha_Transaction_Extraction.json
-        │                              └── [OCR + OpenAI Vision → JSON]
+        ├── POST /receipt      ──▶  Alpha_Transaction_Extraction.json
+        │                              └── [GPT-4 Vision → OCR → Structured JSON]
         │
-        ├── POST /analyze       ──▶  Alpha_Analyze.json
-        │                              └── [GPT-4 + Structured Output]
+        ├── POST /analyze      ──▶  Alpha_Analyze.json
+        │                              └── [GPT-4 → Financial Report]
         │
-        ├── POST /assist        ──▶  Alpha_Assist.json
-        │                              └── [AI Agent + Memory]
+        ├── POST /assist       ──▶  Alpha_Assist.json
+        │                              └── [AI Agent + Conversation Memory]
         │
-        ├── POST /notification  ──▶  Alpha_Notifications.json
-        │                              └── [Push Notification]
+        ├── POST /notification ──▶  Alpha_Notifications.json
+        │                              └── [Push Notification Sender]
         │
-        └── POST /otp           ──▶  Alpha-OTP.json
-                                       └── [Gmail OTP Sender]
+        └── POST /otp          ──▶  Alpha-OTP.json
+                                       └── [Gmail OTP Verification]
 ```
 
 ---
 
-## الملفات
+## 📂 Workflows
 
-| الملف | الـ Endpoint | الوظيفة | Nodes | الحجم |
-|-------|-------------|---------|-------|-------|
-| `Alpha_Transaction_Extraction.json` | `POST /receipt` | استخراج معاملات من صور الفواتير وكشوف الحساب | 19 | 33 KB |
-| `Alpha_Analyze.json` | `POST /analyze` | تحليل البيانات المالية وتوليد تقرير | 9 | 29 KB |
-| `Alpha_Assist.json` | `POST /assist` | مساعد مالي يرد على أسئلة المستخدم | 8 | 33 KB |
-| `Alpha_Notifications.json` | `POST /notification` | إرسال إشعارات للمستخدمين | 7 | 4.6 KB |
-| `Alpha-OTP.json` | `POST /otp` | نظام التحقق بكلمة مرور لمرة واحدة (OTP) عبر Gmail | 5 | 3.3 KB |
-
----
-
-## التقنيات المستخدمة
-
-| التقنية | الاستخدام |
-|---------|----------|
-| **OpenAI GPT-4 Vision** | تحليل صور الفواتير واستخراج البيانات |
-| **OpenAI GPT-4** | تحليل النصوص المالية والإجابة على الأسئلة |
-| **Structured Output Parser** | إخراج JSON منظم وقابل للمعالجة |
-| **Webhook REST API** | نقطة الدخول لكل workflow بشكل مستقل |
-| **Gmail API** | إرسال رمز OTP للتحقق من هوية المستخدم |
+| File | Endpoint | Purpose | Nodes | Size |
+|------|----------|---------|-------|------|
+| `Alpha_Transaction_Extraction.json` | `POST /receipt` | Extracts transactions from receipt images and bank statements using GPT-4 Vision OCR | 19 | 33 KB |
+| `Alpha_Analyze.json` | `POST /analyze` | Analyzes financial data and generates a structured report | 9 | 29 KB |
+| `Alpha_Assist.json` | `POST /assist` | Conversational AI financial assistant with memory | 8 | 33 KB |
+| `Alpha_Notifications.json` | `POST /notification` | Sends push notifications to users | 7 | 4.6 KB |
+| `Alpha-OTP.json` | `POST /otp` | One-Time Password verification system via Gmail | 5 | 3.3 KB |
 
 ---
 
-## لماذا هذا التصميم؟
+## 🛠️ Tech Stack
 
-| الميزة | التفصيل |
-|--------|---------|
-| **الاستقلالية** | كل workflow يعمل ويُطوَّر بشكل مستقل |
-| **السرعة** | كل endpoint يعالج نوعاً واحداً فقط من الطلبات |
-| **سهولة الاختبار** | استدعاء مباشر لكل workflow دون تشغيل نظام كامل |
-| **وضوح المسؤولية** | Single Responsibility Principle لكل ملف |
+| Technology | Role |
+|-----------|------|
+| **OpenAI GPT-4 Vision** | Analyzes receipt images and extracts transaction data |
+| **OpenAI GPT-4** | Financial text analysis and Q&A responses |
+| **Structured Output Parser** | Returns clean, machine-readable JSON responses |
+| **Webhook REST API** | Independent HTTP entry point for each workflow |
+| **Gmail API** | Sends OTP codes for user identity verification |
+
+---
+
+## ✅ Why This Design?
+
+| Principle | How It’s Applied |
+|-----------|------------------|
+| **Independence** | Each workflow runs and scales independently — no shared state |
+| **Speed** | Each endpoint handles a single, focused task — minimal latency |
+| **Testability** | Call any workflow directly without running a full system |
+| **Single Responsibility** | One file, one purpose — clear ownership and easy debugging |
