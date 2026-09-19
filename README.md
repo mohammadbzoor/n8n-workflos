@@ -60,8 +60,9 @@ n8n-workflos/
 
 ---
 
-### 🗂️ [teckNetworks](./teckNetworks/README.md) — أرشيف تجريبي
-ملفات تجريبية قديمة محتفَظ بها كمرجع تطوري.
+### 🤖 [teckNetworks](./teckNetworks/README.md) — AI Recruitment Ecosystem
+منظومة توظيف ذكي متكاملة بجانبَين: **ATS Resume Analyzer** (Candidate Side) + **AI Recruitment Engine** (Recruiter Side).  
+**التقنيات:** Pinecone + OpenAI Embeddings + Cohere Reranking + GPT-4o
 
 ---
 
